@@ -1,4 +1,53 @@
 body {
-  font-family: sans-serif;
-  color: pink;
+  background-color: #ccc;
+}
+a {
+  color: steelblue;
+}
+form {
+}
+.nav-tabs {
+  border-bottom: none;
+}
+.nav-link {
+  background-color: #ececec;
+
+  &.active {
+    background-color: white;
+  }
+}
+.hed {
+  background-color: #2a2323;
+  color: #ececec;
+  font-size: 25px;
+  height: 40px;
+  // margin-bottom:
+}
+.col-form-label {
+  // text-align: right;
+}
+section {
+  border-top: solid 1px #ccc;
+  margin-top: 1px;
+  padding-top: 10px;
+
+  h4 {
+    margin: 0.5em 0 1em;
+  }
+}
+.container {
+  background-color: white;
+  padding-top: 15px;
+}
+label {
+  font-size: 15px;
+}
+input[type='text'] {
+  font-size: 15px;
+}
+.two {
+  // text-align: center;
+}
+.three {
+  text-align: right;
 }

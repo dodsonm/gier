@@ -2,6 +2,97 @@ doctype html
 html
   head
     title= htmlWebpackPlugin.options.title
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+      
   body
-    h1 YAY! Webpack!
-    #root
+    header.hed 
+      i.fa.fa-cogs &#160;
+      span GSA EA Analytics &amp; Reporting (GEAR)    
+    .container      
+      ul.nav.nav-tabs
+        li.nav-item
+          a.nav-link.active(href='#') Overview
+        li.nav-item
+          a.nav-link(href='#') Certified Business Applications
+
+      section.first
+
+        h4.sect-hed Business Overview      
+        
+        form#fisma-form
+          .form-group.row
+            .col-4.col-form-label
+              i.fa.fa-id-card-o &#160;
+              label(for='in-id') ID
+            .col-8  
+              input.form-control(type='text', id='in-id', value='2746', readonly='readonly')
+            .col-4.col-form-label
+              i.fa.fa-sitemap &#160;
+              label(for='in-id') Responsible Org
+            .col-8  
+              input.form-control(type='text', id='in-id', value='Acquisition IT (IQ)')
+          .form-group.row
+            .col-4.col-form-label
+              i.fa.fa-calendar &#160;
+              label(for='in-ato-date') ATO Date
+            .col-8  
+              input.form-control(type='text', id='in-ato-date', value='11/16/2016')
+          .form-group.row
+            .col-4.col-form-label
+              i.fa.fa-file &#160;
+              label(for='in-id') ATO Type
+            .col-8  
+              input.form-control(type='text', id='in-id', value='AO Only ATO Extension')
+          .form-group.row
+            .col-4.col-form-label
+              i.fa.fa-calendar &#160;
+              label(for='in-id') Renewal Date
+            .col-8  
+              input.form-control(type='text', id='in-id', value='11/16/2019')
+          .form-group.row
+            .col-4.col-form-label
+              i.fa.fa-info-circle &#160;
+              label(for='in-id') PII
+            .col-8  
+              input.form-control(type='text', id='in-id', value='No')
+          .form-group.row
+            .col-4.col-form-label
+              i.fa.fa-cloud &#160;
+              label(for='in-id') Cloud Hosted?
+            .col-8  
+              input.form-control(type='text', id='in-id', value='Yes')
+          .form-group.row
+            .col-4.col-form-label
+              i.fa.fa-cloud &#160;
+              label(for='in-id') Cloud Service Provider
+            .col-8  
+              input.form-control(type='text', id='in-id', value='FedRAMP Appian')
+          .form-group.row
+            .col-4.col-form-label
+              i.fa.fa-certificate &#160;
+              label(for='in-id') Type of Service
+            .col-8  
+              input.form-control(type='text', id='in-id', value='PaaS')
+          .form-group.row
+            .col-4.col-form-label
+              i.fa.fa-tag &#160;
+              label(for='in-id') FISMA System Identifier
+            .col-8  
+              input.form-control(type='text', id='in-id', value='IQ-APM')
+          .form-group.row
+            .col-4.col-form-label
+              i.fa.fa-file &#160;
+              label(for='in-id') Related Artifacts
+            .col-8  
+              input.form-control(type='text', id='in-id', value='APM ATO letter')
+          .form-group.row
+            .col-4.one
+              input.btn-secondary.btn(type='reset', value='Reset')
+            .col-4.two  
+              input.btn-danger.btn(type='submit', value='Delete')
+            .col-4.three  
+              input.btn-primary.btn(type='submit', value='Submit')
+    
+    
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js')
