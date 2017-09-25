@@ -3,10 +3,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require("path");
 
 module.exports = {
-  entry: './src/app.js',
+  entry: {
+    app: './src/app.js',
+    // about: './src/about.js',
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: 'app.bundle.js',
+    filename: '[name].bundle.js',
   },
   module: {
     rules: [
@@ -30,7 +33,7 @@ module.exports = {
       contentBase: path.join(__dirname, "dist"),
       compress: true,
       stats: "errors-only",
-      open: true
+      open: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -39,12 +42,23 @@ module.exports = {
         collapseWhitespace: true,
       },
       hash: true,
+      // excludeChunks: ['about'],
       template: './src/index.pug',
     }),
+    // new HtmlWebpackPlugin({
+    //   title: 'GIER App 2.0 | About Us',
+    //   minify: {
+    //     collapseWhitespace: true,
+    //   },
+    //   hash: true,
+    //   chunks: ['about'],
+    //   filename: 'about.html',
+    //   template: './src/index.pug',
+    // }),
     new ExtractTextPlugin({
       filename: 'app.css',
       disable: false,
-      allChunks: true
+      allChunks: true,
     })
   ]
 }
