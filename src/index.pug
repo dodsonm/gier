@@ -2,6 +2,7 @@ doctype html
 html
   head
     title= htmlWebpackPlugin.options.title
+    link(href='https://fonts.googleapis.com/css?family=Roboto', rel='stylesheet')
   body
-    h1 YAY! Webpack!
+    h1= htmlWebpackPlugin.options.title
     #root
