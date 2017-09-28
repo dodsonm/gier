@@ -35,8 +35,15 @@ class App extends React.Component {
     });
 
     this.setState({
-      buyItems: [...newBuyItems]
+      buyItems: [...newBuyItems],
+      message: ''
     });
+
+    if (newBuyItems.length === 0) {
+      this.setState({
+        message: 'Empty! Add something.'
+      });
+    }
   }
 
   render() {
@@ -52,38 +59,44 @@ class App extends React.Component {
             </div>
             <button type="submit" className="btn btn-primary">Add</button>
             {
-              message !== '' && <div className="message text-danger">{message}</div>
+              (message !== '' && buyItems.length > 0) && <div className="message text-danger">{message}</div>
             }
           </form>
         </header>
         <div className="content">
-          <table className="table">
-            <caption>Things</caption>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                buyItems.map(item => {
-                  return (
-                    <tr key={item}>
-                      <td scope="row">1</td>
-                      <td>{item}</td>
-                      <td>
-                        <button onClick={(e) => this.removeItem(item)} className="btn btn-link">
-                          <i className="octicon octicon-trashcan"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  )
-                })
-              }
-            </tbody>
-          </table>
+          {
+            (message !== '' && buyItems.length === 0) && <div className="message text-danger">{message}</div>
+          }
+          {
+            buyItems.length > 0 &&
+            <table className="table">
+              <caption>Things</caption>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  buyItems.map(item => {
+                    return (
+                      <tr key={item}>
+                        <td scope="row">1</td>
+                        <td>{item}</td>
+                        <td>
+                          <button onClick={(e) => this.removeItem(item)} className="btn btn-link">
+                            <i className="octicon octicon-trashcan"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+            </table>
+          }
         </div>
       </main>
     )
