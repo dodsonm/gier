@@ -1,28 +1,26 @@
 import React from 'react';
 
-const Headline = () => {
-  return <h1 className="hed">Now with Google&apos;s Material UI library!</h1>
-}
-
-const Greeting = (props) => {
-  const {name, age} = props;
-  return <p>You will love it, {name} ({age})!</p>
-}
-
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      buyItems: ['milk', 'bread', 'fruit', 'bananas']
+    }
+  }
+
   render() {
+    const {buyItems} = this.state;
     return (
-      <div>
-        <Headline />
-        <Greeting name="Amy" age={30} />
-      </div>
+      <main>
+        <h1>Shopping List</h1>
+        {
+          buyItems.map(item => {
+            return <p key={item}>{item}</p>
+          })
+        }
+      </main>
     )
   }
-}
-
-Greeting.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  age: React.PropTypes.number
 }
 
 export default App;
