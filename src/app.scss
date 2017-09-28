@@ -1,5 +1,16 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  background-image: url('./images/random_grey_variations.png');
+  // background-color: rgba(0,0,0,0.9);
+  font-family: 'Roboto', serif;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  font-weight:100;
+}
+h1 {
+  font-size: 30px;
+  font-weight:100;
+}
+p {
   font-size: 25px;
-  color: salmon;
+  font-weight:100;
 }

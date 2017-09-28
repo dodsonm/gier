@@ -38,3 +38,7 @@ typings/
 
 # Output of 'npm pack'
 *.tgz
+
+# OS Files
+# (Mac)
+.DS_Store

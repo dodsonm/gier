@@ -33,6 +33,7 @@ module.exports = {
         use: 'babel-loader'
       },
       { test: /\.pug$/, loader: 'pug-loader' },
+      { test: /\.png$/, loader: 'file-loader' },
     ],
   },
   devServer: {
