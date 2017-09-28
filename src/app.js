@@ -12,16 +12,35 @@ class App extends React.Component {
     e.preventDefault();
     const {buyItems} = this.state;
     const newItem = this.newItem.value;
+    const isDuplicate = buyItems.includes(newItem);
 
-    this.setState({
-      buyItems: [...this.state.buyItems, newItem]
-    });
+    if (isDuplicate) {
+      this.setState({
+        message: 'Item exists.'
+      });
+    } else {
+      newItem !== '' && this.setState({
+        buyItems: [...this.state.buyItems, newItem],
+        message: ''
+      });
+    }
 
     this.addForm.reset();
   }
 
+  removeItem(item) {
+    console.log(item);
+    const newBuyItems = this.state.buyItems.filter(buyItem => {
+      return buyItem !== item;
+    });
+
+    this.setState({
+      buyItems: [...newBuyItems]
+    });
+  }
+
   render() {
-    const {buyItems} = this.state;
+    const {buyItems, message} = this.state;
     return (
       <main>
         <header>
@@ -32,6 +51,9 @@ class App extends React.Component {
               <input ref={input => this.newItem = input} type="text" placeholder="Add..." className="form-control" id="newItemInput" />
             </div>
             <button type="submit" className="btn btn-primary">Add</button>
+            {
+              message !== '' && <div className="message text-danger">{message}</div>
+            }
           </form>
         </header>
         <div className="content">
@@ -51,7 +73,11 @@ class App extends React.Component {
                     <tr key={item}>
                       <td scope="row">1</td>
                       <td>{item}</td>
-                      <td>Button</td>
+                      <td>
+                        <button onClick={(e) => this.removeItem(item)} className="btn btn-link">
+                          <i className="octicon octicon-trashcan"></i>
+                        </button>
+                      </td>
                     </tr>
                   )
                 })
