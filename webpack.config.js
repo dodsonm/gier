@@ -14,7 +14,7 @@ const cssConfig = isProd? cssProd : cssDev;
 
 module.exports = {
   entry: {
-    app: './src/app.js',
+    app: './src/index.js',
     // about: './src/about.js',
   },
   output: {
